@@ -4,11 +4,6 @@ const nome = ref('')
 const idade = ref('')
 const email = ref('')
 
-const mostrarPerfil = ref(false)
-
-function salvarPerfil() {
-  mostrarPerfil.value = true
-}
 </script>
 
 <template>
