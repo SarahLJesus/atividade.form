@@ -1,44 +1,59 @@
 <script setup>
 import { ref } from 'vue'
-const user = ref({
-  name: 'Sarah Letícia',
-  surname: 'Jesus',
-  email: 'sarahletjesus1908@gmail.com',
-})
-const mostrarPerfil = ref(false)
 
-function salvarPerfil() {
-  mostrarPerfil.value = true
-}
 </script>
 
 <template>
   <div class="container">
     <main>
       <h1>Meu Perfil</h1>
-        <transition name="form" mode="out-in">
-        <section v-if="mostrarPerfil">
-        <button class="btn btn-info" @click="mostrarPerfil = false">Esconder</button>
-        </section>
-        <form v-else class="row g-3 was-validated" @submit.prevent="salvarPerfil()" validate>
-          <div class="col-md-4">
-            <label for="nameField" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="nameField" v-model="user.name" required />
-            <div class="invalid-feedback">Nome obrigatório</div>
-          </div>
-          <div class="col-md-4">
-            <label for="surnameField" class="form-label">Sobrenome</label>
-            <input
-              type="text"
-              class="form-control"
-              id="surnameField"
-              v-model="user.surname"
-              required
-            />
-            <div class="invalid-feedback">Sobrenome obrigatório</div>
-          </div>
-          </form>
-        </transition>
+      <p>Nome:</p>
+      <input
+        type="text"
+        v-model="nome"
+        autocomplete="on"
+        style="width: 200px"
+        v-model.trim="nome"
+        maxlength="40"
+        minlength="5"
+        placeholder="Digite seu nome"
+        required 
+      />
+      <p>Sobrenome:</p>
+      <input
+        type="text"
+        v-model="sobrenome"
+        autocomplete="on"
+        style="width: 200px"
+        maxlength="40"
+        minlength="2"
+        placeholder="Digite seu sobrenome"
+        required 
+      />
+      <p>Email:</p>
+      <input
+        type="email"
+        v-model="email"
+        autocomplete="on"
+        style="width: 200px"
+        v-model.trim="email"
+        placeholder="Digite seu email"
+        required 
+      />
+      <p>Senha:</p>
+      <input
+        type="password"
+        v-model="senha"
+        autocomplete="on"
+        style="width: 200px"
+        placeholder="Digite a senha"
+        required 
+      />
     </main>
   </div>
 </template>
+<style scoped>
+.container {
+  margin: 100px 600px;
+}
+</style>
