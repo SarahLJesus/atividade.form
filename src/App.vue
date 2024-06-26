@@ -49,11 +49,36 @@ import { ref } from 'vue'
         placeholder="Digite a senha"
         required 
       />
+      <p>Data de nascimento:</p>
+      <input
+        type="date"
+        v-model="nascimento"
+        autocomplete="on"
+        style="width: 200px"
+        placeholder="Indique sua data de nascimento"
+        required 
+        />
+        <p>Cidade:</p>
+        <input
+        type="text"
+        v-model="cidade"
+        autocomplete="on"
+        style="width: 200px"
+        v-model.trim="cidade"
+        maxlength="40"
+        minlength="5"
+        placeholder="Digite sua cidade"
+        required 
+      />
+
     </main>
   </div>
 </template>
 <style scoped>
 .container {
   margin: 100px 600px;
+  background-color: rgb(195, 131, 255);
+  border-radius: 10px;
 }
+
 </style>
