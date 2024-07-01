@@ -1,5 +1,5 @@
 <script setup>
-import { reactive , ref } from 'vue';
+import { reactive } from 'vue';
 
 const usuario = reactive({
   nome: 'Sarah',
@@ -11,7 +11,8 @@ const usuario = reactive({
   cidade: '',
   estado:'',
   hobbies: [],
-  lingProgs: []
+  lingProgs: '',
+  biografia: ''
   
 })
 const hobbies = [
@@ -28,20 +29,7 @@ const hobbies = [
     nome: 'Artes'
   }
 ]
-const lingProgs = [
-  {
-    id: 1,
-    nome: 'Phyton'
-  },
-  {
-    id: 2,
-    nome: 'C++'
-  },
-  {
-    id: 3,
-    nome: 'JavaScript'
-  }
-]
+
 </script>
 
 <template>
@@ -168,12 +156,18 @@ const lingProgs = [
           </template>
         </div>
         <p></p>
-        <label>Linguagem de programação:</label>
-    <div class="items-checkbox">
-      <template v-for="lingProg in lingProgs" :key="lingProg.id">
-            <input type="checkbox" :value="lingProg.id" v-model="usuario.lingProgs" /> {{ lingProg.nome }}
-          </template>
-        </div>
+        <label for="lingProgs">Linguagem de programação preferida:</label>
+  <select v-model="usuario.lingProgs">
+    <option value="C">C</option>
+    <option value="C++">C++</option>
+    <option value="Python">Python</option>
+    <option value="Java">Java</option>
+  </select>
+  <p></p>
+  <label>Biografia:</label>
+  <textarea name="message" rows="10" cols="25" v-model="usuario.biografia">
+                Escreva aqui!
+                </textarea>
   </form>
 
     </main>
