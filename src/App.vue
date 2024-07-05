@@ -33,7 +33,7 @@ const hobbies = [
 </script>
 
 <template>
-  <button @click="mostrarResultado = !mostrarResultado">Mostrar</button>
+  
   <main>
     <div v-if="mostrarResultado" class="resultado">
       <h2>Dados do formulário</h2>
@@ -163,7 +163,7 @@ const hobbies = [
         <label>Hobbies:</label>
         <div class="items-checkbox">
           <template v-for="hobbie in hobbies" :key="hobbie.id">
-            <input type="checkbox" :value="hobbie.id" v-model="usuario.hobbies" /> {{ hobbie.nome }}
+            <input type="checkbox" :value="hobbie.nome" v-model="usuario.hobbies" /> {{ hobbie.nome }}
           </template>
         </div>
         <p></p>
@@ -185,6 +185,7 @@ const hobbies = [
           minlength="5"
           placeholder="Escreva sua biografia:"
         />
+        <button @click="mostrarResultado = !mostrarResultado">Mostrar</button>
       </form>
     </div>
   </main>
@@ -194,28 +195,74 @@ const hobbies = [
 main {
   display: flex;
   justify-content: center;
+  padding: 20px;
+  background-color: bisque;
+  min-height: 100vh;
 }
+
 .container {
-  width: 300px;
-  background-color: rgb(195, 131, 255);
+  width: 350px;
+  background-color: rgb(162, 100, 219); 
   border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 h1 {
   text-align: center;
+  color: rgb(54, 0, 99);
+  font-family: 'Arial', sans-serif;
 }
-input {
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  color: rgb(54, 0, 99);
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+}
+
+input, select {
+  padding: 8px;
   border-radius: 20px;
+  border: 1px solid;
+  margin-bottom: 15px;
+  font-family: 'Arial', sans-serif;
 }
-select {
+
+.items-checkbox {
+  display: flex;
+}
+
+.items-checkbox input {
+  margin-right: 5px;
+}
+
+button {
+  display: block;
+  padding: 15px 30px;
+  color: rgb(255, 255, 255);
   border-radius: 20px;
+  background-color: rgb(119, 47, 192);
 }
+
+button:hover {
+  background-color: rgb(54, 0, 99);
+}
+
 .resultado {
-  background-color: rgb(224, 191, 255);
-  margin: 50px;
+  background-color: rgb(157, 122, 190);
+  padding: 20px;
   border-radius: 10px;
 }
-button {
-  border-radius: 20px;
-  background-color: rgb(244, 233, 255);;
+
+.resultado h2 {
+  color: rgb(54, 0, 99);
+  font-family: 'Arial', sans-serif;
+}
+
+.resultado p {
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 10px;
 }
 </style>
